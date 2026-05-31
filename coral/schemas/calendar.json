@@ -1,0 +1,43 @@
+{
+  "source": "calendar",
+  "status": "connected",
+  "tables": [
+    {
+      "name": "calendar_events",
+      "description": "Google Calendar scheduled meetings and ship routines",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "primary_key": true,
+          "description": "Event ID"
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "description": "Event title"
+        },
+        {
+          "name": "start_time",
+          "type": "TIMESTAMP",
+          "description": "Start date/time ISO string"
+        },
+        {
+          "name": "end_time",
+          "type": "TIMESTAMP",
+          "description": "End date/time ISO string"
+        },
+        {
+          "name": "attendees",
+          "type": "TEXT",
+          "description": "Comma separated list of officers attending"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "description": "Full description of activities"
+        }
+      ]
+    }
+  ]
+}

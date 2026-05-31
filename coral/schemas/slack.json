@@ -1,0 +1,38 @@
+{
+  "source": "slack",
+  "status": "connected",
+  "tables": [
+    {
+      "name": "slack_messages",
+      "description": "Slack chats between crew members and automatic sensors",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "primary_key": true,
+          "description": "Message ID"
+        },
+        {
+          "name": "channel",
+          "type": "TEXT",
+          "description": "Slack channel ('#command-bridge', '#crew-quarters', '#kraken-alerts')"
+        },
+        {
+          "name": "sender",
+          "type": "TEXT",
+          "description": "Name of the sender (e.g. Captain Nemo, Sensors Daemon)"
+        },
+        {
+          "name": "message",
+          "type": "TEXT",
+          "description": "Text contents of the message"
+        },
+        {
+          "name": "timestamp",
+          "type": "TIMESTAMP",
+          "description": "When the message was sent"
+        }
+      ]
+    }
+  ]
+}

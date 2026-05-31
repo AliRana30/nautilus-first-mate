@@ -1,0 +1,53 @@
+{
+  "source": "github",
+  "status": "connected",
+  "tables": [
+    {
+      "name": "github_issues",
+      "description": "GitHub Issues tracking ship mechanics and UI fixes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "primary_key": true,
+          "description": "Unique issue ID"
+        },
+        {
+          "name": "repo",
+          "type": "TEXT",
+          "description": "Repository ('nautilus-navigation', 'kraken-defense', 'nautilus-ui')"
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "description": "Short summary of the bug or task"
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "description": "Issue status ('open' or 'closed')"
+        },
+        {
+          "name": "assignee",
+          "type": "TEXT",
+          "description": "Assigned officer"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "description": "Timestamp when logged"
+        },
+        {
+          "name": "closed_at",
+          "type": "TIMESTAMP",
+          "description": "Timestamp when resolved, or null"
+        },
+        {
+          "name": "priority",
+          "type": "TEXT",
+          "description": "Urgency ('high', 'medium', 'low')"
+        }
+      ]
+    }
+  ]
+}

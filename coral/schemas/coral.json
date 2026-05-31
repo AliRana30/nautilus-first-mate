@@ -1,0 +1,26 @@
+[
+  {
+    "table_name": "github_issues",
+    "source_name": "github",
+    "description": "GitHub Issues tracking ship mechanics and UI fixes",
+    "row_count": 5
+  },
+  {
+    "table_name": "slack_messages",
+    "source_name": "slack",
+    "description": "Slack chats between crew members and automatic sensors",
+    "row_count": 7
+  },
+  {
+    "table_name": "notion_pages",
+    "source_name": "notion",
+    "description": "Notion wiki documents and navigational research",
+    "row_count": 4
+  },
+  {
+    "table_name": "calendar_events",
+    "source_name": "calendar",
+    "description": "Google Calendar scheduled meetings and ship routines",
+    "row_count": 3
+  }
+]

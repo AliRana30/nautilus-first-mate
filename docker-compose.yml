@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nautilus-deck:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      # Mounts the Coral CLI binary from the host machine to /usr/local/bin/coral inside the container (Read-Only)
+      # On Unix/macOS: /usr/local/bin/coral is standard.
+      # On Windows, replace the left side with your absolute path, e.g. "C:/Program Files/coral/coral.exe:/usr/local/bin/coral:ro"
+      - ${CORAL_CLI_PATH:-/usr/local/bin/coral}:/usr/local/bin/coral:ro
+    restart: always

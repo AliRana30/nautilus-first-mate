@@ -1,0 +1,187 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-05-30T20:54:27.135Z",
+  "tables": {
+    "github_issues": {
+      "name": "github_issues",
+      "description": "GitHub Issues tracking ship mechanics and UI fixes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "isPrimaryKey": true
+        },
+        {
+          "name": "repo",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "assignee",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "closed_at",
+          "type": "TIMESTAMP",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "priority",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    "slack_messages": {
+      "name": "slack_messages",
+      "description": "Slack chats between crew members and automatic sensors",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "isPrimaryKey": true
+        },
+        {
+          "name": "channel",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "sender",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "message",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "timestamp",
+          "type": "TIMESTAMP",
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    "notion_pages": {
+      "name": "notion_pages",
+      "description": "Notion wiki documents and navigational research",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "isPrimaryKey": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "last_edited",
+          "type": "TIMESTAMP",
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    "calendar_events": {
+      "name": "calendar_events",
+      "description": "Google Calendar scheduled meetings and ship routines",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "isPrimaryKey": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "start_time",
+          "type": "TIMESTAMP",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "end_time",
+          "type": "TIMESTAMP",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "attendees",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "isPrimaryKey": false
+        }
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "fromTable": "github_issues",
+      "fromColumn": "assignee",
+      "toTable": "slack_messages",
+      "toColumn": "sender",
+      "type": "actor-link"
+    },
+    {
+      "fromTable": "github_issues",
+      "fromColumn": "title",
+      "toTable": "notion_pages",
+      "toColumn": "title",
+      "type": "shared-key"
+    },
+    {
+      "fromTable": "github_issues",
+      "fromColumn": "status",
+      "toTable": "notion_pages",
+      "toColumn": "status",
+      "type": "shared-key"
+    },
+    {
+      "fromTable": "github_issues",
+      "fromColumn": "title",
+      "toTable": "calendar_events",
+      "toColumn": "title",
+      "type": "shared-key"
+    },
+    {
+      "fromTable": "notion_pages",
+      "fromColumn": "title",
+      "toTable": "calendar_events",
+      "toColumn": "title",
+      "type": "shared-key"
+    }
+  ]
+}

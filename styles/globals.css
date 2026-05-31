@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy text-parchment font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-navy-deep;
+    font-family: var(--font-poppins), system-ui, sans-serif !important;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(18, 26, 48, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(192, 57, 43, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  /* Custom high-density scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-deep;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-border rounded hover:bg-gold-dim transition-colors;
+  }
+  
+  /* Input & Button resets for naval terminal styling */
+  input, textarea, select, button {
+    @apply bg-navy-deep border border-navy-border text-parchment placeholder-parchment-dark/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-150;
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  .glow-gold {
+    box-shadow: 0 0 15px rgba(240, 165, 0, 0.15);
+  }
+  .glow-rust {
+    box-shadow: 0 0 15px rgba(192, 57, 43, 0.15);
+  }
+  .glass-panel {
+    @apply bg-navy-light/80 border border-navy-border/60 backdrop-blur-sm shadow-cyber-border;
+  }
+  .navy-terminal {
+    @apply bg-navy-deep border border-navy-border rounded p-4 font-mono text-xs leading-relaxed overflow-auto;
+  }
+}
+
+/* Custom terminal scanlines or grid overlays (subtle, data-first) */
+.ocean-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(35, 53, 94, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(35, 53, 94, 0.1) 1px, transparent 1px);
+}
+
+/* Starfield Twinkling & Compass Spinning Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse-slow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-twinkle {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 140s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 180s linear infinite;
+}

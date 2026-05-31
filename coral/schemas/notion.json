@@ -1,0 +1,38 @@
+{
+  "source": "notion",
+  "status": "connected",
+  "tables": [
+    {
+      "name": "notion_pages",
+      "description": "Notion wiki documents and navigational research",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "primary_key": true,
+          "description": "Document ID"
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "description": "Document Title"
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "description": "Full markdown text body"
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "description": "Document status ('draft', 'published', 'archived')"
+        },
+        {
+          "name": "last_edited",
+          "type": "TIMESTAMP",
+          "description": "When last updated"
+        }
+      ]
+    }
+  ]
+}
