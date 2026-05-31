@@ -5,7 +5,7 @@ const envSchema = z.object({
   NOTION_API_KEY: z.string().optional().default(""),
   SLACK_TOKEN: z.string().optional().default(""),
   GOOGLE_CALENDAR_ACCESS_TOKEN: z.string().optional().default(""),
-  GROQ_API_KEY: z.string().min(1, "GROQ_API_KEY is required for the reasoning engine"),
+  GROQ_API_KEY: z.string().optional().default(""),
   ENABLE_MCP: z
     .string()
     .transform((val) => val === "true")
