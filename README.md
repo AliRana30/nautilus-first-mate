@@ -228,16 +228,6 @@ LIMIT 5;
 
 ---
 
-## Screenshots
-
-* **Dashboard**: The main operational deck showing integration badges and visual status.
-* **Chat Interface**: The conversational agent panel showing query responses, reasoning paths, and SQL query previews.
-* **Standup Generator**: The Captain's log window compiling daily tasks, chats, and meetings.
-* **Email Summary**: Prioritized view of unread emails cross-referenced with database tasks.
-* **PR Triage**: A dedicated list sorting pull requests based on their engineering urgency.
-
----
-
 ## Installation
 
 ### Clone Repository
